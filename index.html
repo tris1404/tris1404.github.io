@@ -424,11 +424,14 @@
   </main>
 
   <footer>
-    <div class="container">© <span id="year"></span> Nguyễn Tài Trí. Built with pure HTML, CSS & JavaScript.</div>
+    <div class="container">© <time id="year" aria-label="Năm hiện tại"></time> Nguyễn Tài Trí. Built with pure HTML, CSS & JavaScript.</div>
   </footer>
 
   <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
+    const yearElement = document.getElementById("year");
+    const currentYear = new Date().getFullYear();
+    yearElement.textContent = currentYear;
+    yearElement.setAttribute("datetime", String(currentYear));
 
     const revealElements = document.querySelectorAll(".reveal");
     const observer = new IntersectionObserver(
