@@ -1,29 +1,42 @@
 <!DOCTYPE html>
 <html lang="vi">
+
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tris1404 | Personal Profile</title>
+  <title>Nguyễn Tài Trí — Software Developer</title>
+  <meta name="description"
+    content="Portfolio cá nhân của Nguyễn Tài Trí — sinh viên Đại học GTVT TP.HCM, đam mê lập trình và AI." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600&display=swap"
+    rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.15.1/devicon.min.css" />
   <style>
-    :root {
-      --bg: #0b1120;
-      --bg-soft: #121a2d;
-      --text: #eaf2ff;
-      --muted: #9db0d1;
-      --accent: #7aa2ff;
-      --accent-2: #9a7bff;
-      --card: rgba(255, 255, 255, 0.06);
-      --border: rgba(255, 255, 255, 0.14);
-      --shadow: 0 12px 35px rgba(0, 0, 0, 0.28);
-    }
-
-    * {
+    *,
+    *::before,
+    *::after {
       box-sizing: border-box;
       margin: 0;
       padding: 0;
+    }
+
+    :root {
+      --bg: #0d1117;
+      --bg2: #161b22;
+      --bg3: #21262d;
+      --border: rgba(48, 54, 61, 0.8);
+      --text: #e6edf3;
+      --muted: #8b949e;
+      --blue: #58a6ff;
+      --purple: #bc8cff;
+      --grad: linear-gradient(135deg, #58a6ff, #bc8cff);
+      --grad-r: linear-gradient(135deg, #bc8cff, #58a6ff);
+      --glow-b: 0 0 30px rgba(88, 166, 255, 0.25);
+      --glow-p: 0 0 30px rgba(188, 140, 255, 0.25);
+      --radius: 12px;
+      --radius-lg: 20px;
     }
 
     html {
@@ -31,424 +44,1271 @@
     }
 
     body {
-      font-family: "Be Vietnam Pro", sans-serif;
-      background: radial-gradient(circle at 20% 0%, #1a2450 0%, var(--bg) 40%, #070b16 100%);
+      background: var(--bg);
       color: var(--text);
-      line-height: 1.65;
-      min-height: 100vh;
+      font-family: 'Inter', sans-serif;
+      line-height: 1.7;
+      overflow-x: hidden;
     }
 
-    .container {
-      width: min(1100px, 92%);
-      margin: 0 auto;
+    /* Scrollbar */
+    ::-webkit-scrollbar {
+      width: 6px;
     }
 
-    header {
-      position: sticky;
+    ::-webkit-scrollbar-track {
+      background: var(--bg);
+    }
+
+    ::-webkit-scrollbar-thumb {
+      background: var(--bg3);
+      border-radius: 3px;
+    }
+
+    /* ── NAVBAR ─────────────────────────── */
+    #navbar {
+      position: fixed;
       top: 0;
-      z-index: 20;
-      backdrop-filter: blur(8px);
-      background: rgba(11, 17, 32, 0.75);
-      border-bottom: 1px solid var(--border);
-    }
-
-    nav {
+      left: 0;
+      right: 0;
+      z-index: 100;
+      padding: 0 5%;
       display: flex;
-      justify-content: space-between;
       align-items: center;
-      padding: 14px 0;
+      justify-content: space-between;
+      height: 64px;
+      background: rgba(13, 17, 23, 0.75);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--border);
+      transition: box-shadow .3s;
     }
 
-    .logo {
+    #navbar.scrolled {
+      box-shadow: 0 4px 32px rgba(0, 0, 0, .5);
+    }
+
+    .nav-logo {
+      font-family: 'Space Grotesk', sans-serif;
       font-weight: 700;
-      letter-spacing: 0.3px;
+      font-size: 1.1rem;
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-decoration: none;
     }
 
-    .logo span {
-      color: var(--accent);
-    }
-
-    .menu {
+    .nav-links {
       display: flex;
-      gap: 18px;
+      gap: 2rem;
       list-style: none;
-      flex-wrap: wrap;
-      justify-content: flex-end;
     }
 
-    .menu a {
+    .nav-links a {
       color: var(--muted);
       text-decoration: none;
-      font-weight: 500;
-      transition: color 0.25s ease;
+      font-size: .9rem;
+      transition: color .2s;
     }
 
-    .menu a:hover {
+    .nav-links a:hover {
       color: var(--text);
     }
 
-    section {
-      padding: 84px 0;
-    }
-
-    .hero {
-      min-height: calc(100vh - 66px);
-      display: grid;
-      align-items: center;
-    }
-
-    .hero-wrap {
-      display: grid;
-      grid-template-columns: 1.2fr 0.8fr;
-      gap: 36px;
-      align-items: center;
-    }
-
-    .pill {
-      display: inline-block;
-      padding: 7px 14px;
-      border-radius: 999px;
-      border: 1px solid var(--border);
-      background: rgba(122, 162, 255, 0.12);
-      color: #cfe0ff;
-      font-size: 0.9rem;
-      margin-bottom: 16px;
-    }
-
-    h1 {
-      font-size: clamp(2rem, 4.8vw, 3.4rem);
-      line-height: 1.15;
-      margin-bottom: 14px;
-    }
-
-    .title {
-      color: var(--accent);
+    .nav-cta {
+      padding: .45rem 1.1rem;
+      border-radius: 8px;
+      background: var(--grad);
+      color: #fff !important;
       font-weight: 600;
-      margin-bottom: 14px;
-      font-size: 1.08rem;
+      font-size: .85rem;
+      transition: opacity .2s, transform .2s !important;
     }
 
-    .bio {
+    .nav-cta:hover {
+      opacity: .85;
+      transform: translateY(-1px);
+    }
+
+    .hamburger {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      cursor: pointer;
+      z-index: 110;
+    }
+
+    .hamburger span {
+      display: block;
+      width: 22px;
+      height: 2px;
+      background: var(--text);
+      border-radius: 2px;
+      transition: .3s;
+    }
+
+    /* ── HERO ───────────────────────────── */
+    #hero {
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 100px 5% 60px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(88, 166, 255, .1) 0%, transparent 70%),
+        radial-gradient(ellipse 60% 50% at 80% 80%, rgba(188, 140, 255, .08) 0%, transparent 70%);
+    }
+
+    /* Animated particles */
+    .particles {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .particle {
+      position: absolute;
+      border-radius: 50%;
+      background: var(--grad);
+      opacity: .15;
+      animation: float linear infinite;
+    }
+
+    @keyframes float {
+      0% {
+        transform: translateY(100vh) scale(0);
+        opacity: 0;
+      }
+
+      10% {
+        opacity: .15;
+      }
+
+      90% {
+        opacity: .15;
+      }
+
+      100% {
+        transform: translateY(-100px) scale(1);
+        opacity: 0;
+      }
+    }
+
+    .hero-inner {
+      position: relative;
+      z-index: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      gap: 1.5rem;
+      max-width: 750px;
+    }
+
+    .avatar-wrapper {
+      position: relative;
+      width: 140px;
+      height: 140px;
+      animation: popIn .8s cubic-bezier(.34, 1.56, .64, 1) both;
+    }
+
+    @keyframes popIn {
+      from {
+        transform: scale(0) rotate(-10deg);
+        opacity: 0;
+      }
+
+      to {
+        transform: scale(1) rotate(0);
+        opacity: 1;
+      }
+    }
+
+    .avatar-ring {
+      position: absolute;
+      inset: -4px;
+      border-radius: 50%;
+      background: var(--grad);
+      animation: spin 6s linear infinite;
+      mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #000 calc(100% - 3px));
+      -webkit-mask: radial-gradient(farthest-side, transparent calc(100% - 3px), #000 calc(100% - 3px));
+    }
+
+    @keyframes spin {
+      to {
+        transform: rotate(360deg);
+      }
+    }
+
+    .avatar-img {
+      width: 100%;
+      height: 100%;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--bg);
+    }
+
+    .status-dot {
+      position: absolute;
+      bottom: 8px;
+      right: 8px;
+      width: 16px;
+      height: 16px;
+      border-radius: 50%;
+      background: #3fb950;
+      border: 3px solid var(--bg);
+      animation: pulse-dot 2s infinite;
+    }
+
+    @keyframes pulse-dot {
+
+      0%,
+      100% {
+        box-shadow: 0 0 0 0 rgba(63, 185, 80, .5);
+      }
+
+      50% {
+        box-shadow: 0 0 0 8px rgba(63, 185, 80, 0);
+      }
+    }
+
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      padding: .35rem 1rem;
+      border-radius: 999px;
+      border: 1px solid rgba(88, 166, 255, .3);
+      background: rgba(88, 166, 255, .08);
+      color: var(--blue);
+      font-size: .8rem;
+      font-weight: 500;
+      animation: fadeDown .6s .2s both;
+    }
+
+    .hero-badge::before {
+      content: '✦';
+    }
+
+    @keyframes fadeDown {
+      from {
+        opacity: 0;
+        transform: translateY(-12px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    .hero-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(2.2rem, 6vw, 3.8rem);
+      font-weight: 700;
+      line-height: 1.15;
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: fadeUp .7s .3s both;
+    }
+
+    .hero-title {
+      font-size: clamp(1rem, 2.5vw, 1.3rem);
       color: var(--muted);
-      max-width: 640px;
+      font-weight: 400;
+      animation: fadeUp .7s .4s both;
+    }
+
+    .hero-title span {
+      color: var(--text);
+      font-weight: 500;
+    }
+
+    .hero-bio {
+      font-size: .95rem;
+      color: var(--muted);
+      max-width: 520px;
+      animation: fadeUp .7s .5s both;
+    }
+
+    .hero-location {
+      display: flex;
+      align-items: center;
+      gap: .4rem;
+      color: var(--muted);
+      font-size: .85rem;
+      animation: fadeUp .7s .55s both;
+    }
+
+    .hero-location svg {
+      color: var(--purple);
     }
 
     .hero-actions {
-      margin-top: 24px;
       display: flex;
-      gap: 12px;
+      gap: 1rem;
       flex-wrap: wrap;
+      justify-content: center;
+      animation: fadeUp .7s .65s both;
+    }
+
+    @keyframes fadeUp {
+      from {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
 
     .btn {
       display: inline-flex;
       align-items: center;
-      justify-content: center;
-      padding: 11px 18px;
-      border-radius: 12px;
-      text-decoration: none;
+      gap: .5rem;
+      padding: .7rem 1.6rem;
+      border-radius: 10px;
+      font-size: .9rem;
       font-weight: 600;
-      border: 1px solid transparent;
-      transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, var(--accent), var(--accent-2));
-      color: white;
-      box-shadow: 0 8px 24px rgba(122, 162, 255, 0.32);
-    }
-
-    .btn-secondary {
-      color: var(--text);
-      border-color: var(--border);
-      background: rgba(255, 255, 255, 0.02);
+      text-decoration: none;
+      transition: transform .2s, box-shadow .2s, opacity .2s;
+      cursor: pointer;
+      border: none;
     }
 
     .btn:hover {
       transform: translateY(-2px);
     }
 
-    .avatar-card {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 20px;
-      padding: 14px;
-      box-shadow: var(--shadow);
-      width: min(320px, 100%);
-      margin-inline: auto;
+    .btn-primary {
+      background: var(--grad);
+      color: #fff;
+      box-shadow: 0 4px 20px rgba(88, 166, 255, .3);
     }
 
-    .avatar {
-      width: 100%;
-      border-radius: 16px;
-      aspect-ratio: 1;
-      object-fit: cover;
+    .btn-primary:hover {
+      box-shadow: 0 8px 32px rgba(88, 166, 255, .45);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--blue);
+      background: rgba(88, 166, 255, .08);
+      box-shadow: var(--glow-b);
+    }
+
+    .scroll-hint {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: .4rem;
+      color: var(--muted);
+      font-size: .75rem;
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+
+      0%,
+      100% {
+        transform: translateX(-50%) translateY(0);
+      }
+
+      50% {
+        transform: translateX(-50%) translateY(8px);
+      }
+    }
+
+    /* ── SECTION COMMON ──────────────────── */
+    section {
+      padding: 90px 5%;
+    }
+
+    .section-label {
+      display: inline-flex;
+      align-items: center;
+      gap: .5rem;
+      color: var(--blue);
+      font-size: .8rem;
+      font-weight: 600;
+      letter-spacing: .12em;
+      text-transform: uppercase;
+      margin-bottom: .75rem;
+    }
+
+    .section-label::before {
+      content: '';
       display: block;
+      width: 24px;
+      height: 2px;
+      background: var(--grad);
+      border-radius: 2px;
     }
 
     .section-title {
-      font-size: clamp(1.55rem, 3vw, 2.2rem);
-      margin-bottom: 10px;
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: clamp(1.8rem, 4vw, 2.5rem);
+      font-weight: 700;
+      margin-bottom: 1rem;
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
     }
 
-    .section-subtitle {
+    .section-desc {
       color: var(--muted);
-      margin-bottom: 28px;
-      max-width: 720px;
+      max-width: 520px;
+      margin-bottom: 3rem;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    /* ── ABOUT ──────────────────────────── */
+    #about {
+      background: var(--bg2);
+    }
+
+    .about-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+
+    .about-text p {
+      color: var(--muted);
+      margin-bottom: 1rem;
+      font-size: .95rem;
+    }
+
+    .stats-row {
+      display: flex;
+      gap: 2rem;
+      margin-top: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .stat {
+      display: flex;
+      flex-direction: column;
+      border-left: 2px solid transparent;
+      border-image: var(--grad) 1;
+      padding-left: 1rem;
+    }
+
+    .stat-num {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.8rem;
+      font-weight: 700;
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .stat-label {
+      font-size: .8rem;
+      color: var(--muted);
+    }
+
+    .about-card {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-lg);
+      padding: 2rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .about-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 2px;
+      background: var(--grad);
+    }
+
+    .info-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    .info-list li {
+      display: flex;
+      align-items: center;
+      gap: .75rem;
+      color: var(--muted);
+      font-size: .9rem;
+    }
+
+    .info-list li strong {
+      color: var(--text);
+    }
+
+    .info-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 8px;
+      background: rgba(88, 166, 255, .1);
+      display: grid;
+      place-items: center;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+
+    /* ── SKILLS ─────────────────────────── */
+    #skills {
+      background: var(--bg);
     }
 
     .skills-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(130px, 1fr));
-      gap: 12px;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1rem;
     }
 
-    .skill-item {
-      background: var(--card);
+    .skill-card {
+      background: var(--bg2);
       border: 1px solid var(--border);
-      border-radius: 14px;
-      padding: 12px 14px;
-      text-align: center;
-      font-weight: 500;
-      transition: transform 0.25s ease, border-color 0.25s ease;
+      border-radius: var(--radius);
+      padding: 1.25rem 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+      transition: transform .2s, box-shadow .2s, border-color .2s;
+      cursor: default;
+      opacity: 0;
+      transform: translateY(20px);
     }
 
-    .skill-item:hover {
+    .skill-card.visible {
+      animation: fadeUp .5s forwards;
+    }
+
+    .skill-card:hover {
       transform: translateY(-4px);
-      border-color: rgba(154, 123, 255, 0.65);
+      border-color: rgba(88, 166, 255, .4);
+      box-shadow: var(--glow-b);
+    }
+
+    .skill-icon {
+      font-size: 2rem;
+      flex-shrink: 0;
+    }
+
+    .skill-name {
+      font-weight: 600;
+      font-size: .9rem;
+    }
+
+    .skill-level {
+      font-size: .75rem;
+      color: var(--muted);
+      margin-top: 1px;
+    }
+
+    /* ── PROJECTS ───────────────────────── */
+    #projects {
+      background: var(--bg2);
     }
 
     .projects-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-      gap: 18px;
+      grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+      gap: 1.5rem;
     }
 
     .project-card {
-      background: var(--card);
+      background: rgba(22, 27, 34, .6);
       border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 20px;
-      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+      border-radius: var(--radius-lg);
+      padding: 1.75rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+      position: relative;
+      overflow: hidden;
+      backdrop-filter: blur(12px);
+      transition: transform .3s, box-shadow .3s, border-color .3s;
+      opacity: 0;
+      transform: translateY(24px);
+    }
+
+    .project-card.visible {
+      animation: fadeUp .6s forwards;
+    }
+
+    .project-card::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: var(--grad);
+      opacity: 0;
+      transition: opacity .3s;
+      pointer-events: none;
     }
 
     .project-card:hover {
-      transform: translateY(-5px);
-      border-color: rgba(122, 162, 255, 0.6);
-      box-shadow: var(--shadow);
+      transform: translateY(-6px);
+      border-color: rgba(88, 166, 255, .45);
+      box-shadow: 0 12px 40px rgba(88, 166, 255, .2), 0 0 0 1px rgba(88, 166, 255, .15);
     }
 
-    .project-card h3 {
-      margin-bottom: 10px;
+    .project-card:hover::before {
+      opacity: .03;
     }
 
-    .project-card p {
+    .project-header {
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: .5rem;
+    }
+
+    .project-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      font-size: 1.5rem;
+      flex-shrink: 0;
+    }
+
+    .project-links {
+      display: flex;
+      gap: .5rem;
+    }
+
+    .project-link {
+      display: grid;
+      place-items: center;
+      width: 34px;
+      height: 34px;
+      border-radius: 8px;
+      border: 1px solid var(--border);
       color: var(--muted);
-      margin-bottom: 14px;
-      font-size: 0.96rem;
-    }
-
-    .project-card a {
-      color: #b5c8ff;
       text-decoration: none;
-      font-weight: 600;
+      font-size: .95rem;
+      transition: border-color .2s, color .2s, background .2s;
     }
 
-    .project-card a:hover {
-      text-decoration: underline;
+    .project-link:hover {
+      border-color: var(--blue);
+      color: var(--blue);
+      background: rgba(88, 166, 255, .1);
+    }
+
+    .project-name {
+      font-family: 'Space Grotesk', sans-serif;
+      font-size: 1.1rem;
+      font-weight: 600;
+      color: var(--text);
+      flex: 1;
+    }
+
+    .project-desc {
+      color: var(--muted);
+      font-size: .875rem;
+      line-height: 1.65;
+      flex: 1;
+    }
+
+    .project-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: .5rem;
+    }
+
+    .lang-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: .4rem;
+      padding: .25rem .75rem;
+      border-radius: 999px;
+      font-size: .75rem;
+      font-weight: 500;
+      border: 1px solid rgba(88, 166, 255, .25);
+      background: rgba(88, 166, 255, .08);
+      color: var(--blue);
+    }
+
+    .lang-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+    }
+
+    .star-count {
+      display: flex;
+      align-items: center;
+      gap: .35rem;
+      color: var(--muted);
+      font-size: .8rem;
+    }
+
+    .fork-count {
+      display: flex;
+      align-items: center;
+      gap: .35rem;
+      color: var(--muted);
+      font-size: .8rem;
+    }
+
+    /* ── CONTACT ────────────────────────── */
+    #contact {
+      background: var(--bg);
+    }
+
+    .contact-inner {
+      max-width: 680px;
+      margin: 0 auto;
+      text-align: center;
     }
 
     .contact-card {
-      background: var(--card);
+      background: var(--bg2);
       border: 1px solid var(--border);
-      border-radius: 16px;
-      padding: 24px;
+      border-radius: var(--radius-lg);
+      padding: 3rem 2rem;
+      position: relative;
+      overflow: hidden;
     }
 
-    .contact-list {
-      list-style: none;
-      display: grid;
-      gap: 10px;
+    .contact-card::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: var(--grad);
     }
 
-    .contact-list a {
-      color: #d8e5ff;
-      text-decoration: none;
-      transition: color 0.25s ease;
-      word-break: break-word;
-    }
-
-    .contact-list a:hover {
-      color: var(--accent);
-    }
-
-    footer {
-      padding: 26px 0 36px;
+    .contact-desc {
       color: var(--muted);
+      margin-bottom: 2rem;
+      font-size: .95rem;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+      justify-content: center;
+    }
+
+    .contact-link {
+      display: inline-flex;
+      align-items: center;
+      gap: .6rem;
+      padding: .75rem 1.5rem;
+      border-radius: 10px;
+      border: 1px solid var(--border);
+      color: var(--text);
+      text-decoration: none;
+      font-size: .9rem;
+      font-weight: 500;
+      transition: transform .2s, border-color .2s, box-shadow .2s, background .2s;
+    }
+
+    .contact-link:hover {
+      transform: translateY(-2px);
+      border-color: var(--blue);
+      background: rgba(88, 166, 255, .08);
+      box-shadow: var(--glow-b);
+    }
+
+    .contact-link.primary {
+      background: var(--grad);
+      border-color: transparent;
+      color: #fff;
+      box-shadow: 0 4px 20px rgba(88, 166, 255, .3);
+    }
+
+    .contact-link.primary:hover {
+      box-shadow: 0 8px 32px rgba(88, 166, 255, .45);
+      border-color: transparent;
+    }
+
+    /* ── FOOTER ─────────────────────────── */
+    footer {
+      background: var(--bg2);
+      border-top: 1px solid var(--border);
+      padding: 2rem 5%;
       text-align: center;
-      font-size: 0.94rem;
+      color: var(--muted);
+      font-size: .82rem;
     }
 
-    .reveal {
+    footer span {
+      background: var(--grad);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-weight: 600;
+    }
+
+    /* ── ANIMATIONS OBSERVER ─────────────── */
+    .fade-in {
       opacity: 0;
-      transform: translateY(20px);
-      transition: opacity 0.7s ease, transform 0.7s ease;
+      transform: translateY(24px);
+      transition: opacity .6s, transform .6s;
     }
 
-    .reveal.active {
+    .fade-in.visible {
       opacity: 1;
       transform: translateY(0);
     }
 
-    @media (max-width: 900px) {
-      .hero-wrap {
-        grid-template-columns: 1fr;
-      }
-
-      .avatar-card {
-        max-width: 290px;
-      }
-
-      .hero {
-        min-height: unset;
-        padding-top: 44px;
-      }
-    }
-
-    @media (max-width: 560px) {
-      nav {
-        align-items: flex-start;
-        gap: 10px;
+    /* ── MOBILE ─────────────────────────── */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
         flex-direction: column;
+        gap: 1.5rem;
+        position: fixed;
+        top: 64px;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(13, 17, 23, .97);
+        padding: 3rem 5%;
+        border-top: 1px solid var(--border);
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .hamburger {
+        display: flex;
+      }
+
+      .about-grid {
+        grid-template-columns: 1fr;
+        gap: 2rem;
+      }
+
+      .hero-actions {
+        flex-direction: column;
+        align-items: center;
       }
 
       section {
-        padding: 68px 0;
+        padding: 70px 5%;
+      }
+    }
+
+    @media (max-width: 480px) {
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .skills-grid {
+        grid-template-columns: repeat(2, 1fr);
       }
     }
   </style>
 </head>
-<body>
-  <header>
-    <div class="container">
-      <nav>
-        <div class="logo">tris<span>1404</span></div>
-        <ul class="menu">
-          <li><a href="#home">Giới thiệu</a></li>
-          <li><a href="#skills">Kỹ năng</a></li>
-          <li><a href="#projects">Dự án</a></li>
-          <li><a href="#contact">Liên hệ</a></li>
-        </ul>
-      </nav>
-    </div>
-  </header>
 
-  <main>
-    <section id="home" class="hero">
-      <div class="container hero-wrap">
-        <div class="reveal">
-          <span class="pill">Personal Portfolio</span>
-          <h1>Xin chào, mình là Nguyễn Tài Trí</h1>
-          <p class="title">Frontend Developer • Student</p>
-          <p class="bio">
-            Mình yêu thích xây dựng giao diện web hiện đại, tối ưu trải nghiệm người dùng và có hiệu năng tốt.
-            Hiện tại mình tập trung phát triển kỹ năng lập trình web và xây dựng các dự án thực tế để nâng cao chuyên môn.
-            Mục tiêu của mình là tạo ra các sản phẩm đơn giản, hữu ích và đẹp mắt.
-          </p>
-          <div class="hero-actions">
-            <a class="btn btn-primary" href="#projects">Xem dự án</a>
-            <a class="btn btn-secondary" href="#contact">Liên hệ ngay</a>
+<body>
+
+  <!-- ── NAVBAR ─────────────────────── -->
+  <nav id="navbar">
+    <a href="#hero" class="nav-logo">tris1404</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#about">Về tôi</a></li>
+      <li><a href="#skills">Kỹ năng</a></li>
+      <li><a href="#projects">Dự án</a></li>
+      <li><a href="#contact" class="nav-cta">Liên hệ</a></li>
+    </ul>
+    <div class="hamburger" id="hamburger" aria-label="Menu" role="button" tabindex="0">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+
+  <!-- ── HERO ───────────────────────── -->
+  <section id="hero">
+    <div class="hero-bg"></div>
+    <div class="particles" id="particles"></div>
+
+    <div class="hero-inner">
+      <div class="avatar-wrapper">
+        <div class="avatar-ring"></div>
+        <img src="https://avatars.githubusercontent.com/u/170551364?v=4" alt="Nguyễn Tài Trí" class="avatar-img" />
+        <div class="status-dot" title="Available for opportunities"></div>
+      </div>
+
+      <div class="hero-badge">Software Developer</div>
+
+      <h1 class="hero-name">Nguyễn Tài Trí</h1>
+
+      <p class="hero-title">
+        <span>Fullstack Developer</span>
+      </p>
+
+      <p class="hero-bio">
+        Sinh viên Đại học Giao thông Vận tải TP. Hồ Chí Minh đam mê xây dựng các giải pháp phần mềm thực tế — từ hệ
+        thống backend microservices, ứng dụng Android đến mô hình Computer Vision.
+      </p>
+
+      <div class="hero-location">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z" />
+          <circle cx="12" cy="10" r="3" />
+        </svg>
+        TP. Hồ Chí Minh, Việt Nam
+      </div>
+
+      <div class="hero-actions">
+        <a href="#projects" class="btn btn-primary" id="hero-projects-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <polyline points="16 18 22 12 16 6" />
+            <polyline points="8 6 2 12 8 18" />
+          </svg>
+          Xem dự án
+        </a>
+        <a href="https://github.com/tris1404" target="_blank" rel="noopener" class="btn btn-outline"
+          id="hero-github-btn">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+            <path
+              d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.38.6.11.82-.26.82-.58v-2.02c-3.34.73-4.04-1.61-4.04-1.61-.54-1.38-1.33-1.75-1.33-1.75-1.09-.74.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49 1 .11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.17 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 013-.4c1.02.01 2.04.14 3 .4 2.28-1.55 3.29-1.23 3.29-1.23.66 1.65.24 2.87.12 3.17.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.49 5.92.43.37.82 1.1.82 2.22v3.29c0 .32.22.7.83.58C20.57 21.79 24 17.3 24 12c0-6.63-5.37-12-12-12z" />
+          </svg>
+          GitHub Profile
+        </a>
+      </div>
+    </div>
+
+    <div class="scroll-hint">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="6 9 12 15 18 9" />
+      </svg>
+      Scroll
+    </div>
+  </section>
+
+  <!-- ── ABOUT ───────────────────────── -->
+  <section id="about">
+    <div class="container">
+      <div class="about-grid">
+        <div class="about-text fade-in">
+          <div class="section-label">Về tôi</div>
+          <h2 class="section-title">Xin chào! 👋</h2>
+          <p>Tôi là <strong>Nguyễn Tài Trí</strong>, sinh viên tại <strong>Đại học Giao thông Vận tải TP. Hồ Chí
+              Minh</strong>. Tôi đam mê xây dựng phần mềm có tác động thực tế, từ backend API đến giao diện web và ứng
+            dụng di động.</p>
+          <p>Tôi có kinh nghiệm làm việc với microservices (Java Spring Boot), phát triển Android (Kotlin), xây dựng hệ
+            thống thương mại điện tử, và khám phá lĩnh vực Computer Vision / AI.</p>
+          <p>Luôn sẵn sàng học hỏi, hợp tác và đóng góp cho các dự án có ý nghĩa.</p>
+
+          <div class="stats-row">
+            <div class="stat">
+              <span class="stat-num">6+</span>
+              <span class="stat-label">Dự án GitHub</span>
+            </div>
+            <div class="stat">
+              <span class="stat-num">5+</span>
+              <span class="stat-label">Ngôn ngữ dùng</span>
+            </div>
+            <div class="stat">
+              <span class="stat-num">2023</span>
+              <span class="stat-label">Bắt đầu code</span>
+            </div>
           </div>
         </div>
-        <div class="avatar-card reveal">
-          <img class="avatar" src="https://avatars.githubusercontent.com/u/178704607" alt="Ảnh đại diện Nguyễn Tài Trí" />
-        </div>
-      </div>
-    </section>
 
-    <section id="skills">
-      <div class="container">
-        <h2 class="section-title reveal">Kỹ năng</h2>
-        <p class="section-subtitle reveal">Một số công nghệ mình thường sử dụng trong học tập và phát triển dự án.</p>
-        <div class="skills-grid">
-          <div class="skill-item reveal">HTML5</div>
-          <div class="skill-item reveal">CSS3</div>
-          <div class="skill-item reveal">JavaScript</div>
-          <div class="skill-item reveal">React</div>
-          <div class="skill-item reveal">Python</div>
-          <div class="skill-item reveal">Java</div>
-          <div class="skill-item reveal">Git & GitHub</div>
-          <div class="skill-item reveal">Figma</div>
-        </div>
-      </div>
-    </section>
-
-    <section id="projects">
-      <div class="container">
-        <h2 class="section-title reveal">Dự án nổi bật</h2>
-        <p class="section-subtitle reveal">Một vài dự án tiêu biểu trên GitHub của mình.</p>
-        <div class="projects-grid">
-          <article class="project-card reveal">
-            <h3>tris1404.github.io</h3>
-            <p>Trang GitHub Pages cá nhân dùng để giới thiệu bản thân, kỹ năng và các dự án nổi bật.</p>
-            <a href="https://github.com/tris1404/tris1404.github.io" target="_blank" rel="noopener noreferrer">Xem trên GitHub →</a>
-          </article>
-          <article class="project-card reveal">
-            <h3>Portfolio Components</h3>
-            <p>Bộ giao diện component web tối giản phục vụ cho landing page và portfolio cá nhân.</p>
-            <a href="https://github.com/tris1404?tab=repositories" target="_blank" rel="noopener noreferrer">Xem repositories →</a>
-          </article>
-          <article class="project-card reveal">
-            <h3>Learning Projects</h3>
-            <p>Tổng hợp các project luyện tập về frontend và backend để cải thiện tư duy phát triển sản phẩm.</p>
-            <a href="https://github.com/tris1404" target="_blank" rel="noopener noreferrer">Khám phá thêm →</a>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <section id="contact">
-      <div class="container">
-        <h2 class="section-title reveal">Liên hệ</h2>
-        <p class="section-subtitle reveal">Bạn có thể kết nối với mình qua các kênh bên dưới.</p>
-        <div class="contact-card reveal">
-          <ul class="contact-list">
-            <li>GitHub: <a href="https://github.com/tris1404" target="_blank" rel="noopener noreferrer">github.com/tris1404</a></li>
-            <li>Email: <a href="mailto:nguyentaitri1442005@gmail.com">nguyentaitri1442005@gmail.com</a></li>
-            <li>Facebook: <a href="https://www.facebook.com/nttris1404" target="_blank" rel="noopener noreferrer">facebook.com/nttris1404</a></li>
-            <li>Instagram: <a href="https://www.instagram.com/_nttris" target="_blank" rel="noopener noreferrer">instagram.com/_nttris</a></li>
+        <div class="about-card fade-in">
+          <ul class="info-list">
+            <li>
+              <div class="info-icon">🎓</div>
+              <div><strong>Trường</strong><br />Đại học GTVT TP. Hồ Chí Minh</div>
+            </li>
+            <li>
+              <div class="info-icon">📍</div>
+              <div><strong>Vị trí</strong><br />TP. Hồ Chí Minh, Việt Nam</div>
+            </li>
+            <li>
+              <div class="info-icon">💼</div>
+              <div><strong>Vai trò</strong><br />Fullstack Developer / AI Enthusiast</div>
+            </li>
+            <li>
+              <div class="info-icon">🌐</div>
+              <div><strong>GitHub</strong><br /><a href="https://github.com/tris1404" target="_blank"
+                  style="color:var(--blue);text-decoration:none;">github.com/tris1404</a></div>
+            </li>
+            <li>
+              <div class="info-icon">🟢</div>
+              <div><strong>Trạng thái</strong><br />Sẵn sàng nhận cơ hội mới</div>
+            </li>
           </ul>
         </div>
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
 
+  <!-- ── SKILLS ──────────────────────── -->
+  <section id="skills">
+    <div class="container">
+      <div class="fade-in">
+        <div class="section-label">Kỹ năng</div>
+        <h2 class="section-title">Công nghệ tôi sử dụng</h2>
+        <p class="section-desc">Những ngôn ngữ, framework và công cụ tôi đã làm việc trong các dự án thực tế.</p>
+      </div>
+      <div class="skills-grid" id="skillsGrid">
+        <!-- Injected by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ── PROJECTS ─────────────────────── -->
+  <section id="projects">
+    <div class="container">
+      <div class="fade-in">
+        <div class="section-label">Dự án</div>
+        <h2 class="section-title">Các dự án nổi bật</h2>
+        <p class="section-desc">Những dự án thực tế tôi đã xây dựng — từ AI/ML đến web fullstack và mobile.</p>
+      </div>
+      <div class="projects-grid" id="projectsGrid">
+        <!-- Injected by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- ── CONTACT ─────────────────────── -->
+  <section id="contact">
+    <div class="container">
+      <div class="contact-inner fade-in">
+        <div class="section-label" style="justify-content:center;">Liên hệ</div>
+        <h2 class="section-title" style="text-align:center;">Hãy cùng kết nối!</h2>
+        <div class="contact-card">
+          <p class="contact-desc">Tôi luôn mở cửa cho các cơ hội hợp tác, internship hoặc trao đổi về dự án công nghệ.
+            Đừng ngần ngại liên hệ!</p>
+          <div class="contact-links">
+            <a href="https://github.com/tris1404" target="_blank" rel="noopener" class="contact-link primary"
+              id="contact-github">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor">
+                <path
+                  d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.38.6.11.82-.26.82-.58v-2.02c-3.34.73-4.04-1.61-4.04-1.61-.54-1.38-1.33-1.75-1.33-1.75-1.09-.74.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49 1 .11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.17 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 013-.4c1.02.01 2.04.14 3 .4 2.28-1.55 3.29-1.23 3.29-1.23.66 1.65.24 2.87.12 3.17.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.49 5.92.43.37.82 1.1.82 2.22v3.29c0 .32.22.7.83.58C20.57 21.79 24 17.3 24 12c0-6.63-5.37-12-12-12z" />
+              </svg>
+              GitHub Profile
+            </a>
+            <a href="https://tris1404.github.io" target="_blank" rel="noopener" class="contact-link" id="contact-site">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="10" />
+                <line x1="2" y1="12" x2="22" y2="12" />
+                <path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z" />
+              </svg>
+              tris1404.github.io
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FOOTER ──────────────────────── -->
   <footer>
-    <p class="container">© <time id="year"></time> Nguyễn Tài Trí. Built with pure HTML, CSS & JavaScript.</p>
+    <p>Được tạo với ❤️ bởi <span>Nguyễn Tài Trí</span> · © 2026</p>
   </footer>
 
   <script>
-    const yearElement = document.getElementById("year");
-    const currentYear = new Date().getFullYear();
-    yearElement.textContent = currentYear;
-    yearElement.setAttribute("datetime", String(currentYear));
+    // ── Navbar scroll shadow ──
+    const navbar = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      navbar.classList.toggle('scrolled', window.scrollY > 20);
+    });
 
-    // Trigger animation when ~14% of each element is visible.
-    const REVEAL_THRESHOLD = 0.14;
-    const revealElements = document.querySelectorAll(".reveal");
-    const observer = new IntersectionObserver(
-      entries => {
-        entries.forEach(entry => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("active");
-            observer.unobserve(entry.target);
-          }
-        });
+    // ── Hamburger menu ──
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('navLinks');
+    hamburger.addEventListener('click', () => navLinks.classList.toggle('open'));
+    navLinks.querySelectorAll('a').forEach(a => a.addEventListener('click', () => navLinks.classList.remove('open')));
+
+    // ── Particles ──
+    const particlesContainer = document.getElementById('particles');
+    for (let i = 0; i < 18; i++) {
+      const p = document.createElement('div');
+      p.className = 'particle';
+      const size = Math.random() * 6 + 2;
+      p.style.cssText = `
+      width:${size}px; height:${size}px;
+      left:${Math.random() * 100}%;
+      animation-duration:${Math.random() * 15 + 10}s;
+      animation-delay:${Math.random() * 10}s;
+    `;
+      particlesContainer.appendChild(p);
+    }
+
+    // ── Skills data ──
+    const skills = [
+      { name: 'Java', level: 'Spring Boot & Microservices', icon: '<i class="devicon-java-plain colored"></i>' },
+      { name: 'Python', level: 'AI / ML & Computer Vision', icon: '<i class="devicon-python-plain colored"></i>' },
+      { name: 'Kotlin', level: 'Android Development', icon: '<i class="devicon-kotlin-plain colored"></i>' },
+      { name: 'JavaScript', level: 'Frontend Development', icon: '<i class="devicon-javascript-plain colored"></i>' },
+      { name: 'PHP', level: 'Web Backend', icon: '<i class="devicon-php-plain colored"></i>' },
+      { name: 'HTML / CSS', level: 'Giao diện Web', icon: '<i class="devicon-html5-plain colored"></i>' },
+      { name: 'Spring Boot', level: 'REST API & Microservices', icon: '<i class="devicon-spring-plain colored"></i>' },
+      { name: 'MySQL', level: 'Cơ sở dữ liệu', icon: '<i class="devicon-mysql-plain colored"></i>' },
+      { name: 'Docker', level: 'Containerization', icon: '<i class="devicon-docker-plain colored"></i>' },
+      { name: 'Git', level: 'Version Control', icon: '<i class="devicon-git-plain colored"></i>' },
+    ];
+
+    const skillsGrid = document.getElementById('skillsGrid');
+    skills.forEach((s, i) => {
+      const card = document.createElement('div');
+      card.className = 'skill-card';
+      card.style.animationDelay = `${i * 0.07}s`;
+      card.innerHTML = `
+      <div class="skill-icon">${s.icon}</div>
+      <div>
+        <div class="skill-name">${s.name}</div>
+        <div class="skill-level">${s.level}</div>
+      </div>`;
+      skillsGrid.appendChild(card);
+    });
+
+    // ── Projects data ──
+    const langColors = {
+      Python: '#3572A5', Java: '#b07219', Kotlin: '#A97BFF',
+      PHP: '#4F5D95', JavaScript: '#f1e05a', HTML: '#e34c26', null: '#8b949e'
+    };
+
+    const projects = [
+      {
+        name: 'face-detection-segmentation',
+        desc: 'Hệ thống phát hiện và phân đoạn khuôn mặt sử dụng RetinaFace cho detection và U-Net cho semantic segmentation. Ứng dụng Computer Vision thực tế.',
+        lang: 'Python', stars: 0, forks: 0,
+        url: 'https://github.com/tris1404/face-detection-segmentation',
+        icon: '🤖', iconBg: 'rgba(88,166,255,.12)'
       },
-      { threshold: REVEAL_THRESHOLD }
-    );
+      {
+        name: 'electric-vehicle-shop',
+        desc: 'Hệ thống thương mại điện tử xe điện với kiến trúc microservices. Backend Java Spring Boot, xử lý đặt hàng, quản lý phiên bản xe và hệ thống email.',
+        lang: 'Java', stars: 0, forks: 0,
+        url: 'https://github.com/tris1404/electric-vehicle-shop',
+        icon: '⚡', iconBg: 'rgba(188,140,255,.12)'
+      },
+      {
+        name: 'agro-ecommerce-system',
+        desc: 'Nền tảng thương mại điện tử nông nghiệp đầy đủ tính năng: xác thực email, quản lý đơn hàng, phân quyền admin/user với Java Spring Boot.',
+        lang: 'Java', stars: 0, forks: 0,
+        url: 'https://github.com/tris1404/agro-ecommerce-system',
+        icon: '🌱', iconBg: 'rgba(63,185,80,.12)'
+      },
+      {
+        name: 'SoccerShoeStore',
+        desc: 'Cửa hàng bán giày bóng đá trực tuyến xây dựng bằng PHP. Tính năng giỏ hàng, quản lý sản phẩm, trang admin và thanh toán. Được 2 người fork.',
+        lang: 'PHP', stars: 0, forks: 2,
+        url: 'https://github.com/tris1404/SoccerShoeStore',
+        icon: '⚽', iconBg: 'rgba(240,180,0,.12)'
+      },
+      {
+        name: 'AlertDrive',
+        desc: 'Ứng dụng Android giám sát lái xe an toàn. Phát hiện buồn ngủ, cảnh báo thời gian thực bằng camera. Xây dựng với Kotlin và Computer Vision.',
+        lang: 'Kotlin', stars: 0, forks: 0,
+        url: 'https://github.com/tris1404/AlertDrive',
+        icon: '🚗', iconBg: 'rgba(169,123,255,.12)'
+      },
+      {
+        name: 'tris1404.github.io',
+        desc: 'Trang portfolio cá nhân này! Xây dựng bằng HTML, CSS, JavaScript thuần — dark mode, glassmorphism, animations và responsive hoàn toàn.',
+        lang: 'HTML', stars: 0, forks: 0,
+        url: 'https://github.com/tris1404/tris1404.github.io',
+        icon: '🌐', iconBg: 'rgba(88,166,255,.12)'
+      },
+    ];
 
-    revealElements.forEach(el => observer.observe(el));
+    const projectsGrid = document.getElementById('projectsGrid');
+    projects.forEach((p, i) => {
+      const color = langColors[p.lang] || '#8b949e';
+      const card = document.createElement('div');
+      card.className = 'project-card';
+      card.style.animationDelay = `${i * 0.1}s`;
+      card.innerHTML = `
+      <div class="project-header">
+        <div class="project-icon" style="background:${p.iconBg};">${p.icon}</div>
+        <div class="project-links">
+          <a href="${p.url}" target="_blank" rel="noopener" class="project-link" title="GitHub" aria-label="${p.name} GitHub">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.3 3.44 9.8 8.2 11.38.6.11.82-.26.82-.58v-2.02c-3.34.73-4.04-1.61-4.04-1.61-.54-1.38-1.33-1.75-1.33-1.75-1.09-.74.08-.73.08-.73 1.2.08 1.84 1.24 1.84 1.24 1.07 1.83 2.8 1.3 3.49 1 .11-.78.42-1.3.76-1.6-2.67-.3-5.47-1.33-5.47-5.93 0-1.31.47-2.38 1.24-3.22-.12-.3-.54-1.52.12-3.17 0 0 1.01-.32 3.3 1.23a11.5 11.5 0 013-.4c1.02.01 2.04.14 3 .4 2.28-1.55 3.29-1.23 3.29-1.23.66 1.65.24 2.87.12 3.17.77.84 1.24 1.91 1.24 3.22 0 4.61-2.81 5.63-5.49 5.92.43.37.82 1.1.82 2.22v3.29c0 .32.22.7.83.58C20.57 21.79 24 17.3 24 12c0-6.63-5.37-12-12-12z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="project-name">${p.name}</div>
+      <p class="project-desc">${p.desc}</p>
+      <div class="project-footer">
+        <span class="lang-badge">
+          <span class="lang-dot" style="background:${color};"></span>
+          ${p.lang}
+        </span>
+        <div style="display:flex;gap:.75rem;">
+          <span class="star-count">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+            ${p.stars}
+          </span>
+          ${p.forks > 0 ? `<span class="fork-count">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="6" y1="3" x2="6" y2="15"/><circle cx="18" cy="6" r="3"/><circle cx="6" cy="18" r="3"/><circle cx="6" cy="6" r="3"/><path d="M18 9a9 9 0 01-9 9"/></svg>
+            ${p.forks}
+          </span>` : ''}
+        </div>
+      </div>`;
+      projectsGrid.appendChild(card);
+    });
+
+    // ── Intersection Observer for animations ──
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+          observer.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.12 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+    document.querySelectorAll('.skill-card, .project-card').forEach(el => observer.observe(el));
+
+    // ── Active nav link on scroll ──
+    const sections = document.querySelectorAll('section[id]');
+    const navAnchors = document.querySelectorAll('.nav-links a');
+    const scrollSpy = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          navAnchors.forEach(a => a.style.color = '');
+          const active = document.querySelector(`.nav-links a[href="#${e.target.id}"]`);
+          if (active && !active.classList.contains('nav-cta')) active.style.color = 'var(--text)';
+        }
+      });
+    }, { threshold: 0.4 });
+    sections.forEach(s => scrollSpy.observe(s));
   </script>
 </body>
+
 </html>
