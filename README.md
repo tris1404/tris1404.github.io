@@ -1,4 +1,28 @@
+<div align="center">
+
+<img src="https://avatars.githubusercontent.com/u/170551364?v=4" width="120" style="border-radius:50%" alt="Nguyễn Tài Trí"/>
+
+# 👋 Xin chào, tôi là Nguyễn Tài Trí!
+
+[![Typing SVG](https://readme-typing-svg.demolab.com?font=Fira+Code&size=22&pause=1000&color=58A6FF&center=true&vCenter=true&width=600&lines=Fullstack+Developer;Java+Spring+Boot+%7C+Python+%7C+Kotlin;AI+%2F+Computer+Vision+Explorer;Student+%40+UT-HCMC)](https://tris1404.github.io/)
+
 [![🌐 Visit Portfolio](https://img.shields.io/badge/🌐%20Visit%20My%20Portfolio-tris1404.github.io-58a6ff?style=for-the-badge&logoColor=white)](https://tris1404.github.io/)
+
+</div>
+
+---
+
+## 👤 Thông tin cá nhân
+
+| | |
+|---|---|
+| 📛 **Họ và tên** | Nguyễn Tài Trí |
+| 🎓 **Trường** | Đại học Giao thông Vận tải TP. Hồ Chí Minh |
+| 💼 **Vai trò** | Fullstack Developer|
+| 📍 **Vị trí** | TP. Hồ Chí Minh, Việt Nam 🇻🇳 |
+| 📧 **Email** | [nguyentaitri1442005@gmail.com](mailto:nguyentaitri1442005@gmail.com) |
+| 🌐 **Portfolio** | [tris1404.github.io](https://tris1404.github.io/) |
+| 🟢 **Trạng thái** | Sẵn sàng nhận cơ hội mới |
 
 ## 🌐 Socials:
 [![Facebook](https://img.shields.io/badge/Facebook-%231877F2.svg?logo=Facebook&logoColor=white)](https://facebook.com/https://www.facebook.com/nttris1404) [![Instagram](https://img.shields.io/badge/Instagram-%23E4405F.svg?logo=Instagram&logoColor=white)](https://instagram.com/https://www.instagram.com/_nttris) [![TikTok](https://img.shields.io/badge/TikTok-%23000000.svg?logo=TikTok&logoColor=white)](https://tiktok.com/@http://www.tiktok.com/@nttris_) [![email](https://img.shields.io/badge/Email-D14836?logo=gmail&logoColor=white)](mailto:nguyentaitri1442005@gmail.com) 
