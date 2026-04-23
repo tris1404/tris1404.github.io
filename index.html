@@ -424,7 +424,7 @@
   </main>
 
   <footer>
-    <div class="container">© <time id="year"></time> Nguyễn Tài Trí. Built with pure HTML, CSS & JavaScript.</div>
+    <p class="container">© <time id="year"></time> Nguyễn Tài Trí. Built with pure HTML, CSS & JavaScript.</p>
   </footer>
 
   <script>
@@ -433,6 +433,7 @@
     yearElement.textContent = currentYear;
     yearElement.setAttribute("datetime", String(currentYear));
 
+    // Trigger animation when ~14% of each element is visible.
     const REVEAL_THRESHOLD = 0.14;
     const revealElements = document.querySelectorAll(".reveal");
     const observer = new IntersectionObserver(
